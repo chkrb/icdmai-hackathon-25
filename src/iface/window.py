@@ -8,7 +8,7 @@ class WindowWidget(QtWidgets.QWidget):
 
         super().__init__()
 
-        self.wlayout = QtWidgets.QVBoxLayout(self)
+        self.wlayout = QtWidgets.QHBoxLayout(self)
 
         # The left pane contains the list of all medical devices.
         self.left_pane = QtWidgets.QFrame()
