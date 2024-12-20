@@ -7,7 +7,25 @@ QLabel#device-type {
 	font-size: 16px;
 }
 
-QLabel#placeholder-text {
-	font-size: 32px;
-	margin: 10px;
+QLabel#rpane-placeholder {
+	margin: 200px;
+}
+
+QLabel#rpane-title {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+QLabel#rpane-subtitle {
+	font-size: 18px;
+}
+
+QLabel#rpane-score {
+	font-size: 128px;
+	font-weight: bold;
+}
+
+QLabel#rpane-score-oot {
+	font-size: 48px;
+	font-weight: bold;
 }

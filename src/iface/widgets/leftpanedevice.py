@@ -1,5 +1,5 @@
-from PySide6.QtWidgets import QFrame, QLabel, QPushButton, QHBoxLayout, \
-                              QVBoxLayout, QSizePolicy
+from PySide6.QtWidgets import QFrame, QLabel, QHBoxLayout, QPushButton, \
+                               QSizePolicy, QVBoxLayout
 
 
 class LeftPaneDevice(QFrame):

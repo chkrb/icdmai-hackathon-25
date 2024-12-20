@@ -2,6 +2,7 @@ from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QApplication, QFrame, QHBoxLayout, QScrollArea, \
                               QStackedLayout, QVBoxLayout, QWidget
 from src.iface.widgets.leftpanedevice import *
+from src.iface.widgets.rightpanestats import *
 
 
 class WindowWidget(QWidget):
@@ -38,9 +39,9 @@ class WindowWidget(QWidget):
         self.wlayout.addWidget(self.rpane_frame, 70)
 
         # This is the default view (acting as a placeholder) of the right pane.
-        self.rpane_label = QLabel("Select a device in the left pane to view its information.",
+        self.rpane_label = QLabel("<h1>Select a device in the left pane to view its information.</h1>",
                                   self.rpane_frame)
-        self.rpane_label.setObjectName("placeholder-text")
+        self.rpane_label.setObjectName("rpane-placeholder")
         self.rpane_label.setAlignment(Qt.AlignCenter)
         self.rpane_label.setWordWrap(True)
         self.rpane_layout.addWidget(self.rpane_label)
