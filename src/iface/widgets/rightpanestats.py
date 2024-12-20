@@ -10,7 +10,7 @@ class RightPaneStats(QFrame):
         self.opacity_effect = QGraphicsOpacityEffect()
         self.opacity_anim = QPropertyAnimation(self.opacity_effect, b'opacity')
 
-        self.opacity_anim.setDuration(750)
+        self.opacity_anim.setDuration(400)
         self.opacity_anim.setEasingCurve(QEasingCurve.InOutCubic)
         self.setGraphicsEffect(self.opacity_effect)
 
