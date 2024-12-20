@@ -1,5 +1,5 @@
 from src.iface.window import *
 
 def main():
-    Window.showMaximized()
+    Window.showFullScreen()
     return Window.display()

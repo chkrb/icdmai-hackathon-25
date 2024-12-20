@@ -1,0 +1,13 @@
+QLabel#device-name {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+QLabel#device-type {
+	font-size: 16px;
+}
+
+QLabel#placeholder-text {
+	font-size: 32px;
+	margin: 10px;
+}
