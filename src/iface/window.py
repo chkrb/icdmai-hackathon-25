@@ -33,7 +33,7 @@ class WindowWidget(QWidget):
         # A scrollable area for the left pane.
         self.lpane_scr = QScrollArea(self)
         self.lpane_scr.setWidgetResizable(True)
-        self.wlayout.addWidget(self.lpane_scr, 25)
+        self.wlayout.addWidget(self.lpane_scr, 30)
 
         self.lpane_frame = QFrame(self.lpane_scr)
         self.lpane_frame.setObjectName("left-pane")
@@ -46,7 +46,7 @@ class WindowWidget(QWidget):
         self.rpane_frame = QFrame(self)
         self.rpane_frame.setObjectName("right-pane")
         self.rpane_layout = QStackedLayout(self.rpane_frame)
-        self.wlayout.addWidget(self.rpane_frame, 75)
+        self.wlayout.addWidget(self.rpane_frame, 70)
 
         # This is the default view (acting as a placeholder) of the right pane.
         self.rpane_label = QLabel("<h1>Select a device in the left pane to view its information.</h1>",
