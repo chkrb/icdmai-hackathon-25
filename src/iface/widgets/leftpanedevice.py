@@ -1,33 +1,42 @@
 from PySide6.QtWidgets import QFrame, QLabel, QHBoxLayout, QPushButton, \
                                QSizePolicy, QVBoxLayout
 
-
 class LeftPaneDevice(QFrame):
-    def __init__(self, parent = None):
+    def __init__(self, parent=None):
         super().__init__(parent)
 
         self.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
 
-        self.wlayout = QHBoxLayout()
-        self.setLayout(self.wlayout)
+        self.l_base = QHBoxLayout(self)
 
-        self.devinfo_frame = QFrame(self)
-        self.devinfo_layout = QVBoxLayout(self.devinfo_frame)
-        self.wlayout.addWidget(self.devinfo_frame, 90)
+        self.initUiEntry()
 
-        self.view_button = QPushButton("→", self)
-        self.wlayout.addWidget(self.view_button, 10)
+    def initUiEntry(self):
+        dev_layout = QVBoxLayout()
 
-        self.devname_label = QLabel(self.devinfo_frame)
-        self.devname_label.setObjectName("device-name")
-        self.devinfo_layout.addWidget(self.devname_label)
+        devname_label = QLabel(self)
+        devtype_label = QLabel(self)
+        dev_button = QPushButton("→", self)
 
-        self.devtype_label = QLabel(self.devinfo_frame)
-        self.devtype_label.setObjectName("device-type")
-        self.devinfo_layout.addWidget(self.devtype_label)
+        dev_layout.addWidget(devname_label)
+        dev_layout.addWidget(devtype_label)
+
+        self.l_base.addLayout(dev_layout, 90)
+        self.l_base.addWidget(dev_button, 10)
+
+        # These widgets are important.
+        self.w_device_name = devname_label
+        self.w_device_type = devtype_label
+        self.w_device_open = dev_button
+        self.w_device_name.setObjectName("lpane-device-name")
+        self.w_device_type.setObjectName("lpane-device-type")
+        self.w_device_open.setObjectName("lpane-device-open")
 
     def setDeviceName(self, name):
-        self.devname_label.setText(name)
+        self.w_device_name.setText(name)
 
     def setDeviceType(self, type):
-        self.devtype_label.setText(type)
+        self.w_device_type.setText(type)
+
+    def connectDeviceButton(self, slot):
+        self.w_device_open.clicked.connect(slot)

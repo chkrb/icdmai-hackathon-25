@@ -12,31 +12,34 @@ class WindowWidget(QWidget):
 
         super().__init__()
 
-        with open("src/iface/qss/main.qss") as qss:
+        with open("src/iface/styling/main.qss") as qss:
             self.setStyleSheet(qss.read())
 
+        # The primary layout of the base widget.
         self.wlayout = QHBoxLayout(self)
 
-        # The left pane contains the list of all medical devices.
-        self.lpane_frame = QFrame(self)
-        self.lpane_frame.setObjectName("left-pane")
-        self.lpane_layout = QHBoxLayout(self.lpane_frame)
-        self.wlayout.addWidget(self.lpane_frame, 30)
+        # Initialize sub-widgets.
+        self.initUiLeftPane()
+        self.initUiRightPane()
 
+    def initUiLeftPane(self):
         # A scrollable area for the left pane.
-        self.lpane_scr = QScrollArea(self.lpane_frame)
-        self.lpane_layout.addWidget(self.lpane_scr)
-        self.lpane_scr_frame = QFrame(self.lpane_scr)
-        self.lpane_scr.setWidget(self.lpane_scr_frame)
-        self.lpane_scr_layout = QVBoxLayout(self.lpane_scr_frame)
+        self.lpane_scr = QScrollArea(self)
         self.lpane_scr.setWidgetResizable(True)
+        self.wlayout.addWidget(self.lpane_scr, 25)
 
+        self.lpane_frame = QFrame(self.lpane_scr)
+        self.lpane_frame.setObjectName("left-pane")
+        self.lpane_scr.setWidget(self.lpane_frame)
+        self.lpane_layout = QVBoxLayout(self.lpane_frame)
+
+    def initUiRightPane(self):
         # The right pane contains the information about the selected
         # medical device.
         self.rpane_frame = QFrame(self)
         self.rpane_frame.setObjectName("right-pane")
         self.rpane_layout = QStackedLayout(self.rpane_frame)
-        self.wlayout.addWidget(self.rpane_frame, 70)
+        self.wlayout.addWidget(self.rpane_frame, 75)
 
         # This is the default view (acting as a placeholder) of the right pane.
         self.rpane_label = QLabel("<h1>Select a device in the left pane to view its information.</h1>",
@@ -46,7 +49,15 @@ class WindowWidget(QWidget):
         self.rpane_label.setWordWrap(True)
         self.rpane_layout.addWidget(self.rpane_label)
 
-    def display(self):
+    def createNewDevice(self):
+        lpane = LeftPaneDevice(self)
+        rpane = RightPaneStats(self)
+        self.lpane_layout.addWidget(lpane)
+        self.rpane_layout.addWidget(rpane)
+
+        return lpane, rpane
+
+    def displayWindow(self):
         return self.handler.exec()
 
 

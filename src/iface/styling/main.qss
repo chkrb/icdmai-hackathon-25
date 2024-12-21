@@ -1,9 +1,25 @@
-QLabel#device-name {
+* {
+	background-color: rgb(21, 21, 25);
+	color: rgb(238, 244, 240);
+}
+
+QPushButton {
+	padding: 10px 15px;
+	outline: none;
+}
+
+WindowWidget > * {
+	border: 2px solid rgb(98, 104, 128);
+	border-radius: 10px;
+	padding: 5px;
+}
+
+QLabel#lpane-device-name {
 	font-size: 20px;
 	font-weight: bold;
 }
 
-QLabel#device-type {
+QLabel#lpane-device-type {
 	font-size: 16px;
 }
 
@@ -20,7 +36,7 @@ QLabel#rpane-subtitle {
 	font-size: 18px;
 }
 
-QLabel#rpane-score {
+QLabel#rpane-score-num {
 	font-size: 128px;
 	font-weight: bold;
 }
