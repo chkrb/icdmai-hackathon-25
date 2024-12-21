@@ -1,4 +1,6 @@
+import os
 from PySide6.QtCore import Qt
+from PySide6.QtGui import QFontDatabase
 from PySide6.QtWidgets import QApplication, QFrame, QHBoxLayout, QScrollArea, \
                               QStackedLayout, QVBoxLayout, QWidget
 from src.iface.widgets.leftpanedevice import *
@@ -12,6 +14,11 @@ class WindowWidget(QWidget):
 
         super().__init__()
 
+        # Load all fonts.
+        for fontfile in os.listdir("res/fonts/"):
+            QFontDatabase.addApplicationFont(f"res/fonts/{fontfile}")
+
+        # Load the stylesheet.
         with open("src/iface/styling/main.qss") as qss:
             self.setStyleSheet(qss.read())
 

@@ -1,6 +1,7 @@
 * {
 	background-color: rgb(21, 21, 25);
 	color: rgb(238, 244, 240);
+	font-family: JetBrains Mono;
 }
 
 QPushButton {
