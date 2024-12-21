@@ -40,27 +40,29 @@ class Device:
         self.device_service_date = date
         td = relativedelta(date, datetime.now())
 
-        str_list = []
+        fmt_list = []
 
         if td.years == 1:
-            str_list.append(f"{td.years} year")
+            fmt_list.append(f"{td.years} year")
         elif td.years > 1:
-            str_list.append(f"{td.years} years")
+            fmt_list.append(f"{td.years} years")
 
         if td.months == 1:
-            str_list.append(f"{td.months} month")
+            fmt_list.append(f"{td.months} month")
         elif td.months > 1:
-            str_list.append(f"{td.months} months")
+            fmt_list.append(f"{td.months} months")
 
         if td.days == 1:
-            str_list.append(f"{td.days} day")
+            fmt_list.append(f"{td.days} day")
         elif td.days > 1:
-            str_list.append(f"{td.days} days")
+            fmt_list.append(f"{td.days} days")
 
-        if not str_list:
-            str_list.append("Now")
+        if fmt_list:
+            fmt_str = "after " + ", ".join(fmt_list)
+        else:
+            fmt_str = "now"
 
-        self.w_rpane.setDeviceServiceDate(", ".join(str_list))
+        self.w_rpane.setDeviceServiceDate(fmt_str)
 
     def setServiceCost(self, cost):
         self.w_rpane.setDeviceServiceCost(f"\u20b9{cost}")
