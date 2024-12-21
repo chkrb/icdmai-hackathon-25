@@ -18,10 +18,12 @@ WindowWidget > * {
 QLabel#lpane-device-name {
 	font-size: 20px;
 	font-weight: bold;
+	padding-right: 20px;
 }
 
 QLabel#lpane-device-type {
 	font-size: 16px;
+	padding-right: 20px;
 }
 
 QLabel#rpane-placeholder {
