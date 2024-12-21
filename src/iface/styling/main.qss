@@ -1,0 +1,55 @@
+ QFrame {
+        background-color:rgb(21, 21, 25); 
+    }
+
+ QFrame#left-pane { 
+        border: 1px solid #d3d3d3; 
+    }
+
+QLabel#device-name {
+	font-size: 20px;
+	font-weight: bold;
+	color:rgb(238, 244, 240)
+	
+}
+
+QLabel#device-type {
+	font-size: 16px;
+	color:rgb(238, 244, 240)
+}
+
+QLabel#rpane-placeholder {
+	margin: 200px;
+	color:rgb(238, 244, 240)
+}
+
+QLabel#rpane-title {
+	font-size: 40px;
+	font-weight: bold;
+	color:rgb(238, 244, 240)
+}
+
+QLabel#rpane-subtitle {
+	font-size: 18px;
+	color:rgb(238, 244, 240)
+}
+
+QLabel#rpane-score {
+	font-size: 128px;
+	font-weight: bold;
+	
+}
+
+QLabel#rpane-score-oot {
+	font-size: 48px;
+	font-weight: bold;
+	color:rgb(238, 244, 240)
+}
+QPushButton {
+    font-size: 25px;          
+    padding: 5px,5px;
+    height: 25px;             
+    width: 100px;             
+}
+
+

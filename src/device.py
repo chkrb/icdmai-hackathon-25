@@ -1,5 +1,6 @@
 from enum import Enum
 from src.iface.window import *
+from src.iface.styling.dynamic import*
 from src.iface.widgets.leftpanedevice import *
 from src.iface.widgets.rightpanestats import *
 
@@ -15,7 +16,7 @@ class Device:
     def __init__(self, type, name):
         self.device_name = name
         self.device_type = type
-        self.device_health_score = 0
+        self.device_health_score = 7
         self.device_service_date = None
 
         self.w_lpane = LeftPaneDevice(Window.lpane_scr_frame)
@@ -23,13 +24,15 @@ class Device:
 
         self.w_lpane.setDeviceType(self.device_type.value)
         self.w_lpane.setDeviceName(self.device_name)
-
         self.w_rpane = RightPaneStats(Window.rpane_frame)
         Window.rpane_layout.addWidget(self.w_rpane)
 
         self.w_rpane.setDeviceType(self.device_type.value)
         self.w_rpane.setDeviceName(self.device_name)
-        self.w_rpane.setDeviceScore(10) # PLACEHOLDER
+        
+
+        # Dynamically change color based on the device score (or any other value)
+        self.w_rpane.setDeviceScore(self.device_health_score)
         self.w_rpane.setDeviceService("6 months") # PLACEHOLDER
 
         # Map the button of the device entry.

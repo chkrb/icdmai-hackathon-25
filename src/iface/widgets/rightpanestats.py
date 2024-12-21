@@ -1,6 +1,7 @@
 from PySide6.QtCore import QEasingCurve, QPropertyAnimation
 from PySide6.QtWidgets import QFrame, QGraphicsOpacityEffect, QGridLayout, \
                               QHBoxLayout, QLabel, QSizePolicy, QVBoxLayout
+from src.iface.styling.dynamic import*
 
 
 class RightPaneStats(QFrame):
@@ -58,6 +59,7 @@ class RightPaneStats(QFrame):
         self.serv_label = QLabel(self.serv_frame)
         self.serv_label.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         self.serv_layout.addWidget(self.serv_label)
+        self.color_updater = DynamicColor(self.score_label)
 
     def setDeviceName(self, name):
         self.title_label.setText(name)
@@ -67,9 +69,11 @@ class RightPaneStats(QFrame):
 
     def setDeviceScore(self, score):
         self.score_label.setText(str(score).zfill(2))
+        self.color_updater.update_color(score)
 
     def setDeviceService(self, date):
         self.serv_label.setText("in around " + date)
+        
 
     def applyToStackedLayout(self):
         self.parent().layout().setCurrentWidget(self)

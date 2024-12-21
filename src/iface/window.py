@@ -11,8 +11,9 @@ class WindowWidget(QWidget):
         self.handler = QApplication([])
 
         super().__init__()
+        #self.setFixedSize(400, 700)
 
-        with open("src/iface/qss/main.qss") as qss:
+        with open("src/iface/styling/main.qss") as qss:
             self.setStyleSheet(qss.read())
 
         self.wlayout = QHBoxLayout(self)
