@@ -21,8 +21,6 @@ class RightPaneStats(QFrame):
         self.initUiHeader()
         self.initUiScore()
         self.initUiInfo()
-        # Add some bottom spacing (in pixels)
-        self.l_base.addSpacing(150)
 
     def initUiHeader(self):
         # The header contains the title and the subtitle.
@@ -44,7 +42,7 @@ class RightPaneStats(QFrame):
         # An out-of-10 score is given to each device.
         base = QFrame(self)
         base.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Maximum)
-        self.l_base.addWidget(base, 1, Qt.AlignCenter)
+        self.l_base.addWidget(base, 80, Qt.AlignCenter)
 
         layout = QVBoxLayout(base)
         numoot_sublayout = QHBoxLayout()
@@ -94,6 +92,9 @@ class RightPaneStats(QFrame):
         layout.addWidget(cost_hlabel, 0, 1)
         layout.addWidget(serv_label, 1, 0)
         layout.addWidget(cost_label, 1, 1)
+
+        # Add some bottom stretch (in pixels)
+        self.l_base.addStretch(20)
 
         # These widgets are important.
         self.w_info_serv = serv_label
